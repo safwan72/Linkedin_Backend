@@ -1,0 +1,50 @@
+from django.urls import path, include
+from . import views
+
+urlpatterns = [
+    path(
+        "profile/<user__id>/",
+        views.UserProfileSerializerView.as_view(),
+        name="user_profile",
+    ),
+    path(
+        "getuserfromtoken/",
+        views.GetUserFromToken.as_view(),
+        name="user_details_token",
+    ),
+    path(
+        "checktoken/",
+        views.CheckToken.as_view(),
+        name="user_token_check",
+    ),
+    path(
+        "create/",
+        views.UserCreateSerializerView.as_view(),
+        name="user__create",
+    ),
+    path(
+        "uploadProfilePic/",
+        views.uploadProfilePic,
+        name="uploadProfilePic",
+    ),
+    path(
+        "uploadCoverPic/",
+        views.uploadCoverPic,
+        name="uploadCoverPic",
+    ),
+    path(
+        "getUsers/",
+        views.getUsers,
+        name="getUsers",
+    ),
+    path(
+        "viewprofile/",
+        views.viewprofile,
+        name="viewprofile",
+    ),
+    path(
+        "profileViews/<id>/",
+        views.profileViews,
+        name="profileViews",
+    ),
+]
