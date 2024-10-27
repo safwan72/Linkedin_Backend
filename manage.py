@@ -4,12 +4,13 @@ import os
 import pathlib
 import sys
 import dotenv
+from dotenv import load_dotenv
 
 def main():
     """Run administrative tasks."""
     DOTENV_PATH=pathlib.Path()/".env"
     if DOTENV_PATH.exists():
-        dotenv.read_dotenv(str(DOTENV_PATH))
+        dotenv.load_dotenv(str(DOTENV_PATH))
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'linkedin.settings')
     try:
         from django.core.management import execute_from_command_line
